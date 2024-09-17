@@ -1,0 +1,35 @@
+<div class="max-w-2xl mx-auto mt-8 p-6 bg-white rounded-lg shadow-md dark:bg-gray-800">
+  <h1 class="text-3xl font-bold text-gray-900 dark:text-white mb-6">报修详情</h1>
+
+  <div class="space-y-4">
+    <div class="flex items-center">
+      <span class="w-24 font-semibold text-gray-700 dark:text-gray-300">姓名:</span>
+      <span class="text-gray-900 dark:text-white"><%= @repair.name %></span>
+    </div>
+    <div class="flex items-center">
+      <span class="w-24 font-semibold text-gray-700 dark:text-gray-300">电话:</span>
+      <span class="text-gray-900 dark:text-white"><%= @repair.phone_number %></span>
+    </div>
+    <div class="flex items-center">
+      <span class="w-24 font-semibold text-gray-700 dark:text-gray-300">组织:</span>
+      <span class="text-gray-900 dark:text-white"><%= @repair.organization %></span>
+    </div>
+    <div class="flex items-center">
+      <span class="w-24 font-semibold text-gray-700 dark:text-gray-300">内容:</span>
+      <span class="text-gray-900 dark:text-white"><%= @repair.content %></span>
+    </div>
+    <div class="flex items-center">
+      <span class="w-24 font-semibold text-gray-700 dark:text-gray-300">状态:</span>
+      <span class="px-2 py-1 text-xs font-semibold text-white bg-blue-500 rounded-full"><%= @repair.status %></span>
+    </div>
+    <div class="flex items-center">
+      <span class="w-24 font-semibold text-gray-700 dark:text-gray-300">报修时间:</span>
+      <span class="text-gray-900 dark:text-white"><%= @repair.repair_time %></span>
+    </div>
+  </div>
+
+  <div class="mt-8 space-x-4">
+    <%= link_to '编辑', edit_repair_path(@repair), class: "inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" %>
+    <%= link_to '返回列表', repairs_path, class: "inline-flex items-center px-4 py-2 border border-gray-300 text-sm font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" %>
+  </div>
+</div>

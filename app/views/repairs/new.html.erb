@@ -1,0 +1,45 @@
+<div class="max-w-md mx-auto mt-8">
+  <%= form_with(model: @repair, local: true, class: "space-y-6") do |form| %>
+    <% if flash[:alert] %>
+      <div class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative" role="alert">
+        <%= flash[:alert] %>
+      </div>
+    <% end %>
+
+    <% if @repair.errors.any? %>
+      <div id="error_explanation" class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative">
+        <h2 class="font-bold"><%= pluralize(@repair.errors.count, "个错误") %>导致无法保存此报修:</h2>
+        <ul class="list-disc list-inside">
+          <% @repair.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <div>
+      <%= form.label :name, '姓名', class: "block text-sm font-medium text-gray-700" %>
+      <%= form.text_field :name, id: :repair_name, class: "mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" %>
+    </div>
+
+    <div>
+      <%= form.label :phone_number, '电话号码', class: "block text-sm font-medium text-gray-700" %>
+      <%= form.telephone_field :phone_number, id: :repair_phone_number, class: "mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" %>
+    </div>
+
+    <div>
+      <%= form.label :organization, '组织/单位', class: "block text-sm font-medium text-gray-700" %>
+      <%= form.text_field :organization, id: :repair_organization, class: "mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" %>
+    </div>
+
+    <div>
+      <%= form.label :content, '报修内容', class: "block text-sm font-medium text-gray-700" %>
+      <%= form.text_area :content, id: :repair_content, rows: 5, class: "mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" %>
+    </div>
+
+    <div>
+      <%= form.submit '提交报修', class: "w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" %>
+    </div>
+  <% end %>
+</div>
+  

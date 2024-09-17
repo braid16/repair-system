@@ -1,0 +1,18 @@
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+  <h1 class="text-3xl font-bold text-gray-900 mb-6">报修列表</h1>
+
+  <%= link_to '新建报修', new_repair_path, class: "inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 mb-6" %>
+
+  <ul class="bg-white shadow overflow-hidden sm:rounded-md">
+    <% @repairs.each do |repair| %>
+      <li class="border-b border-gray-200 last:border-b-0">
+        <%= link_to repair_path(repair), class: "block hover:bg-gray-50" do %>
+          <div class="px-4 py-4 sm:px-6">
+            <p class="text-sm font-medium text-indigo-600 truncate"><%= repair.content %></p>
+            <p class="mt-1 text-sm text-gray-500">报修时间: <%= repair.created_at.strftime("%Y-%m-%d %H:%M") %></p>
+          </div>
+        <% end %>
+      </li>
+    <% end %>
+  </ul>
+</div>
